@@ -1,4 +1,4 @@
-# wxappFictionReader
+# 小说小程序后端代码
 名称：小说阅读小程序
 
 主要功能：
