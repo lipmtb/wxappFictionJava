@@ -8,9 +8,10 @@ import java.net.URL;
 public class GetReaderOpenId {
 	private static final long serialVersionUID = 1L;
 	private static final String URLBASE="https://api.weixin.qq.com/sns/jscode2session";
-    private static final String APPID="wx8ba275ed8b28009c";
-    private static final String APPSECRET="7db5321d779843db4e8c601bc160413d";
-	  //Æ´½ÓÍêÕûµÄurl
+	//å¡«å†™è‡ªå·±çš„appidå’Œappsecret
+//     private static final String APPID="your appid";
+//     private static final String APPSECRET="your appsecret";
+	  //æ‹¼æ¥å®Œæ•´çš„url
     public static String getCompleteUrl(String jsCode) {
    	  String url=GetReaderOpenId.URLBASE;
    	  url=url+"?appid="+GetReaderOpenId.APPID+"&secret="+GetReaderOpenId.APPSECRET+"&js_code="
@@ -18,7 +19,7 @@ public class GetReaderOpenId {
    	  return url;
     }
     
-  //ÀûÓÃcodeÈ¥Î¢ĞÅ·şÎñÆ÷»ñÈ¡openIdºÍsessionId
+  //åˆ©ç”¨codeå»å¾®ä¿¡æœåŠ¡å™¨è·å–openIdå’ŒsessionId
     public static String getUserSecretInfo(String code) {
    	 BufferedReader br=null;
    	 StringBuffer sb=new StringBuffer();
@@ -26,14 +27,14 @@ public class GetReaderOpenId {
    	String path=getCompleteUrl(code);
    	 try {
    		     
-   		    URL url = new URL(path);    // °Ñ×Ö·û´®×ª»»ÎªURLÇëÇóµØÖ·
-   		    conn = (HttpURLConnection) url.openConnection();// ´ò¿ªÁ¬½Ó
+   		    URL url = new URL(path);    // æŠŠå­—ç¬¦ä¸²è½¬æ¢ä¸ºURLè¯·æ±‚åœ°å€
+   		    conn = (HttpURLConnection) url.openConnection();// æ‰“å¼€è¿æ¥
    		    conn.setRequestMethod("GET");
    		    conn.setConnectTimeout(5000);
    		    conn.setDoInput(true);
-   		    conn.connect();// Á¬½Ó»á»°
+   		    conn.connect();// è¿æ¥ä¼šè¯
 
-   		    // »ñÈ¡ÊäÈëÁ÷
+   		    // è·å–è¾“å…¥æµ
    		    br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
    		    String line=null;
    		    while((line=br.readLine())!=null) {
