@@ -8,11 +8,5 @@
 
 后端：Mysql+ Spring+ SpringMVC+ Hibernate
 
-## tip 
-//注意修改appid和appsecret
-
-//     private static final String APPID="your appid";
-
-//     private static final String APPSECRET="your appsecret";
 
 
